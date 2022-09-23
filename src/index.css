@@ -1,0 +1,20 @@
+/**Esse arquivo vai alterar o css da página inteira.
+*/
+
+body {
+  margin: 0;
+  background-color: rgba(26, 105, 92, 0.76);
+  font-family: Cambria;
+}
+
+h1 {
+  color: white;
+}
+
+p {
+  color: rgb(5, 58, 47);
+}
+
+ol {
+  color: rgb(5, 58, 47);
+}
