@@ -1,24 +1,29 @@
-//Os componentes renderizam o JSX, junto com o App.js. 
-import { useState } from 'react';
-import SeuNome from './components/Eventos/SeuNome';
-import './App.css';
-import Saudacao from './components/Eventos/Saudacao';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import Empresa from './pages/Empresa';
+import Contato from './pages/Contato';
+import NavBar from './components/layout/NavBar';
+import Footer from './components/layout/Footer';
 
 function App() {
-  //Normalmente essas variáveis estariam junto com o componente, porém para usar o stateLift precisa colocar essas variáveis em um local em que o pai e o filho serão utilizados.
-  const[nome, setNome] = useState();
- 
+
   return (
-    <div className="App"> 
-      <h1>StateLift</h1>
-      {/* Componente pai */}
-      <SeuNome setNome={setNome}/>
-      {/* Componente filho */}
-      {/* {nome} */}
-
-      <Saudacao nome={nome}/>
-
-    </div>
+    // O Router envolve toda a aplicação.
+    <Router>
+      <ul>
+        <NavBar />
+      </ul>
+      {/* O Switch/Routes é para distribuir os links entre as páginas. */}
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+          {/* <Home /> */}
+        <Route path="/empresa" element={<Empresa/>}/>
+          {/* <Empresa /> */}
+        <Route path="/contato" element={<Contato/>}/>
+          {/* <Contato /> */}
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
 
